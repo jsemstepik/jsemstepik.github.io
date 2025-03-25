@@ -8,7 +8,7 @@
     <style>
         :root {
             --primary: #00ff88;
-            --secondary: #00ffee;
+            --secondary: #00ffee;  
             --bg: #0a0a0a;
             --surface: #111111;
             --border: rgba(255,255,255,0.1);
@@ -397,7 +397,7 @@
                     
                     <div class="game-controls">
                         <div class="score-display">Skóre: <span id="score">0</span></div>
-                        <button class="game-btn" id="restartBtn" style="display: none;">Hrát znovu</button>
+                        <button class="game-btn" id="restartBtn">Hrát znovu</button>
                     </div>
                     
                     <p class="controls-info">Ovládání: Šipky nebo WASD klávesami</p>
@@ -631,14 +631,12 @@
             gameOverMessage.style.display = 'block';
             gameStartScreen.style.display = 'flex';
             startGameBtn.textContent = 'Hrát znovu';
-            restartBtn.style.display = 'block';
         }
 
         function startGame() {
             initGame();
             gameOverMessage.style.display = 'none';
             gameStartScreen.style.display = 'none';
-            restartBtn.style.display = 'none';
             
             isGameRunning = true;
             if (gameLoop) clearInterval(gameLoop);
