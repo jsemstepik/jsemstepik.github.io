@@ -143,6 +143,7 @@
         .project-card p {
             text-align: center;
             margin-bottom: 2rem;
+            color: rgba(255,255,255,0.7);
         }
 
         /* Hra */
@@ -337,6 +338,16 @@
             line-height: 1.5;
         }
 
+        /* Wave text styles */
+        .wave-text {
+            display: inline-block;
+        }
+        
+        .wave-text span {
+            display: inline-block;
+            position: relative;
+        }
+
         /* Responsivní design */
         @media (max-width: 768px) {
             .hero {
@@ -370,9 +381,9 @@
     <main>
         <section class="hero">
             <div class="container">
-                <div class="subtitle">Junior Developer</div>
-                <h1>Štěpán Semrád</h1>
-                <p>Vášnivý programátor specializující se na moderní webové technologie a JavaScript aplikace.</p>
+                <div class="subtitle wave-text" id="subtitle">Junior Developer</div>
+                <h1 class="wave-text" id="name">Štěpán Semrád</h1>
+                <p class="wave-text" id="description">Vášnivý programátor specializující se na moderní webové technologie a JavaScript aplikace.</p>
                 <div class="btn-group">
                     <a href="#project" class="btn btn-primary">Můj projekt</a>
                     <a href="#contact" class="btn btn-secondary">Kontakt</a>
@@ -382,10 +393,10 @@
 
         <section id="project" class="projects">
             <div class="container">
-                <h2 class="section-title">Můj Projekt</h2>
+                <h2 class="section-title wave-text" id="projectTitle">Můj Projekt</h2>
                 <div class="project-card">
-                    <h3>Snake Game</h3>
-                    <p>Klasická hra had implementovaná pomocí Canvas API s moderním designem a responzivním ovládáním.</p>
+                    <h3 class="wave-text" id="gameTitle">Snake Game</h3>
+                    <p class="wave-text" id="gameDescription">Klasická hra had implementovaná pomocí Canvas API s moderním designem a responzivním ovládáním.</p>
                     
                     <div class="game-container">
                         <canvas id="gameCanvas" width="600" height="400"></canvas>
@@ -400,13 +411,13 @@
                         <button class="game-btn" id="restartBtn">Hrát znovu</button>
                     </div>
                     
-                    <p class="controls-info">Ovládání: Šipky nebo WASD klávesami</p>
+                    <p class="controls-info wave-text">Ovládání: Šipky nebo WASD klávesami</p>
                     
                     <div class="tech-tags">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">HTML5 Canvas</span>
-                        <span class="tech-tag">Game Development</span>
-                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag wave-text">JavaScript</span>
+                        <span class="tech-tag wave-text">HTML5 Canvas</span>
+                        <span class="tech-tag wave-text">Game Development</span>
+                        <span class="tech-tag wave-text">Responsive Design</span>
                     </div>
                 </div>
             </div>
@@ -420,12 +431,14 @@
                         <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.57 9.5 21.26 9.5 20.988C9.5 20.749 9.5 20.009 9.5 19C6.5 19.5 6 17.5 6 17.5C5.5 16 4.5 15.5 4.5 15.5C3.5 14.5 4.5 14.5 4.5 14.5C5.5 14.5 6 15.5 6 15.5C7 17 8 17.5 9.5 17C9.5 16 9.75 15.5 10 15.25C7.25 15 4.5 14 4.5 10C4.5 8.8 5 7.75 6 7C5.85 6.65 5.5 5.7 6 4.5C6 4.5 7 4.25 9.5 5.5C10.5 5.25 11.5 5.125 12.5 5.125C13.5 5.125 14.5 5.25 15.5 5.5C18 4.25 19 4.5 19 4.5C19.5 5.7 19.15 6.65 19 7C20 7.75 20.5 8.8 20.5 10C20.5 14 17.75 15 15 15.25C15.5 15.75 15.5 16.5 15.5 17.5C15.5 18.5 15.5 19.75 15.5 20.988C15.5 21.26 15.661 21.57 16.161 21.489C20.135 20.166 23 16.418 23 12C23 6.477 18.523 2 12 2Z" fill="currentColor"/>
                         </svg>
+                        GitHub
                     </a>
                     <a href="mailto:stepan.semrad@centrum.cz" class="social-link">
                         <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
+                        Email
                     </a>
                 </div>
                 <p class="copyright">© 2025 Štěpán Semrád</p>
@@ -434,6 +447,57 @@
     </main>
 
     <script>
+        // Wave text animation function
+        function animateWaveText() {
+            const waveElements = document.querySelectorAll('.wave-text');
+            
+            waveElements.forEach(element => {
+                const originalText = element.textContent;
+                element.innerHTML = '';
+                
+                Array.from(originalText).forEach((char, index) => {
+                    const charSpan = document.createElement('span');
+                    charSpan.textContent = char === ' ' ? '\u00A0' : char;
+                    charSpan.style.display = 'inline-block';
+                    charSpan.style.position = 'relative';
+                    
+                    // Apply appropriate styles based on element
+                    if (element.id === 'name') {
+                        // Main heading - keep original gradient
+                        charSpan.style.background = 'linear-gradient(45deg, var(--primary), var(--secondary))';
+                        charSpan.style.webkitBackgroundClip = 'text';
+                        charSpan.style.backgroundClip = 'text';
+                        charSpan.style.color = 'transparent';
+                    } else if (element.id === 'subtitle') {
+                        charSpan.style.color = 'var(--primary)';
+                    } else if (element.classList.contains('tech-tag')) {
+                        charSpan.style.color = '#ccc';
+                    } else if (element.classList.contains('controls-info')) {
+                        charSpan.style.color = 'rgba(255,255,255,0.6)';
+                    } else {
+                        charSpan.style.color = 'rgba(255,255,255,0.7)';
+                    }
+                    
+                    // Create animation
+                    const animation = charSpan.animate(
+                        [
+                            { transform: 'translateY(0px)', opacity: 0.8 },
+                            { transform: 'translateY(-4px)', opacity: 1 },
+                            { transform: 'translateY(0px)', opacity: 0.8 }
+                        ],
+                        {
+                            duration: 2000,
+                            delay: index * 50,
+                            iterations: Infinity,
+                            easing: 'ease-in-out'
+                        }
+                    );
+                    
+                    element.appendChild(charSpan);
+                });
+            });
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -665,8 +729,9 @@
         startGameBtn.addEventListener('click', startGame);
         restartBtn.addEventListener('click', startGame);
 
-        // Initialize on window load
+        // Initialize everything when window loads
         window.addEventListener('load', () => {
+            animateWaveText();
             initGame();
             drawGame();
         });
