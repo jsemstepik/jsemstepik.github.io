@@ -85,8 +85,8 @@
             box-shadow: 0 0 15px var(--neon-pink);
         }
 
-        /* Hidden content for other language */
-        [lang="cs"] {
+        /* Hidden content for Czech language by default */
+        #czechContent {
             display: none;
         }
 
@@ -394,7 +394,7 @@
     </div>
 
     <!-- English Content (default) -->
-    <div lang="en" id="englishContent">
+    <div id="englishContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -513,7 +513,7 @@
     </div>
 
     <!-- Czech Content (hidden by default) -->
-    <div lang="cs" id="czechContent">
+    <div id="czechContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -686,29 +686,28 @@
             glitch.style.animationDuration = 3 + (y * 7) + 's';
         });
 
-        // Language switcher functionality - FIXED VERSION
-        const languageSwitcher = document.getElementById('languageSwitcher');
-        const englishContent = document.getElementById('englishContent');
-        const czechContent = document.getElementById('czechContent');
-        
-        languageSwitcher.addEventListener('click', function() {
-            // Check if English is currently displayed
-            if (englishContent.style.display !== 'none') {
-                // Switch to Czech
-                englishContent.style.display = 'none';
-                czechContent.style.display = 'block';
-                languageSwitcher.classList.add('active');
-                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
-                document.documentElement.lang = 'cs';
-            } else {
-                // Switch to English
-                englishContent.style.display = 'block';
-                czechContent.style.display = 'none';
-                languageSwitcher.classList.remove('active');
-                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
-                document.documentElement.lang = 'en';
-            }
-        });
-
-        // Easter egg
-        console.log('%c Looking for easter eggs? Nothing here... or is there
+        // Language switcher functionality - ZCELA PŘEPRACOVÁNO
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            const englishContent = document.getElementById('englishContent');
+            const czechContent = document.getElementById('czechContent');
+            
+            // Zajistíme, že je při načtení stránky správně nastaveno zobrazení
+            englishContent.style.display = 'block';
+            czechContent.style.display = 'none';
+            
+            // Přidáme event listener na tlačítko
+            languageSwitcher.addEventListener('click', function() {
+                if (czechContent.style.display === 'none') {
+                    // Přepnutí na češtinu
+                    czechContent.style.display = 'block';
+                    englishContent.style.display = 'none';
+                    languageSwitcher.classList.add('active');
+                    languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
+                    document.documentElement.lang = 'cs';
+                } else {
+                    // Přepnutí na angličtinu
+                    czechContent.style.display = 'none';
+                    englishContent.style.display = 'block';
+                    languageSwitcher.classList.remove('active');
+                    languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
