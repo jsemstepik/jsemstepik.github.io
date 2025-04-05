@@ -394,7 +394,7 @@
     </div>
 
     <!-- English Content (default) -->
-    <div lang="en">
+    <div lang="en" id="englishContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -513,7 +513,7 @@
     </div>
 
     <!-- Czech Content (hidden by default) -->
-    <div lang="cs" style="display: none;">
+    <div lang="cs" id="czechContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -686,32 +686,29 @@
             glitch.style.animationDuration = 3 + (y * 7) + 's';
         });
 
-        // Language switcher functionality
+        // Language switcher functionality - FIXED VERSION
         const languageSwitcher = document.getElementById('languageSwitcher');
+        const englishContent = document.getElementById('englishContent');
+        const czechContent = document.getElementById('czechContent');
         
         languageSwitcher.addEventListener('click', function() {
-            const englishContent = document.querySelector('[lang="en"]');
-            const czechContent = document.querySelector('[lang="cs"]');
-            
-            if (englishContent.style.display === 'none') {
-                // Switch to English
-                englishContent.style.display = 'block';
-                czechContent.style.display = 'none';
-                languageSwitcher.classList.remove('active');
-                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
-                document.documentElement.lang = 'en';
-            } else {
+            // Check if English is currently displayed
+            if (englishContent.style.display !== 'none') {
                 // Switch to Czech
                 englishContent.style.display = 'none';
                 czechContent.style.display = 'block';
                 languageSwitcher.classList.add('active');
                 languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
                 document.documentElement.lang = 'cs';
+            } else {
+                // Switch to English
+                englishContent.style.display = 'block';
+                czechContent.style.display = 'none';
+                languageSwitcher.classList.remove('active');
+                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
+                document.documentElement.lang = 'en';
             }
         });
 
         // Easter egg
-        console.log('%c Looking for easter eggs? Nothing here... or is there? 😉', 'color: var(--neon-pink); font-size: 16px;');
-    </script>
-</body>
-</html>
+        console.log('%c Looking for easter eggs? Nothing here... or is there
