@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Štěpán Semrád, a 13-year-old tech enthusiast who loves coding, gaming, and tech tinkering.">
+    <meta name="keywords" content="Štěpán Semrád, portfolio, coding, gaming, tech, web development, game development">
     <title>Štěpán Semrád | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -85,8 +87,8 @@
             box-shadow: 0 0 15px var(--neon-pink);
         }
 
-        /* Hidden content for Czech language by default */
-        #czechContent {
+        /* Hidden content for other language */
+        [lang="cs"] {
             display: none;
         }
 
@@ -388,13 +390,13 @@
     <div class="hidden-message">01001000 01101001 00100001</div>
 
     <!-- Language switcher button -->
-    <div class="language-switcher" id="languageSwitcher">
+    <div class="language-switcher" id="languageSwitcher" role="button" tabindex="0" aria-label="Switch language to Czech">
         <i class="fas fa-language"></i>
         <span>Česky</span>
     </div>
 
     <!-- English Content (default) -->
-    <div id="englishContent">
+    <div lang="en" id="englishContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -513,7 +515,7 @@
     </div>
 
     <!-- Czech Content (hidden by default) -->
-    <div id="czechContent">
+    <div lang="cs" id="czechContent">
         <header>
             <h1>Štěpán Semrád</h1>
             <p class="subtitle">
@@ -686,28 +688,39 @@
             glitch.style.animationDuration = 3 + (y * 7) + 's';
         });
 
-        // Language switcher functionality - ZCELA PŘEPRACOVÁNO
-        document.addEventListener('DOMContentLoaded', function() {
-            const languageSwitcher = document.getElementById('languageSwitcher');
-            const englishContent = document.getElementById('englishContent');
-            const czechContent = document.getElementById('czechContent');
-            
-            // Zajistíme, že je při načtení stránky správně nastaveno zobrazení
-            englishContent.style.display = 'block';
-            czechContent.style.display = 'none';
-            
-            // Přidáme event listener na tlačítko
-            languageSwitcher.addEventListener('click', function() {
-                if (czechContent.style.display === 'none') {
-                    // Přepnutí na češtinu
-                    czechContent.style.display = 'block';
-                    englishContent.style.display = 'none';
-                    languageSwitcher.classList.add('active');
-                    languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
-                    document.documentElement.lang = 'cs';
-                } else {
-                    // Přepnutí na angličtinu
-                    czechContent.style.display = 'none';
-                    englishContent.style.display = 'block';
-                    languageSwitcher.classList.remove('active');
-                    languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
+        // Language switcher functionality
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        const englishContent = document.getElementById('englishContent');
+        const czechContent = document.getElementById('czechContent');
+        
+        languageSwitcher.addEventListener('click', function() {
+            // Check if English is currently displayed
+            if (englishContent.style.display !== 'none') {
+                // Switch to Czech
+                englishContent.style.display = 'none';
+                czechContent.style.display = 'block';
+                languageSwitcher.classList.add('active');
+                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
+                document.documentElement.lang = 'cs';
+            } else {
+                // Switch to English
+                englishContent.style.display = 'block';
+                czechContent.style.display = 'none';
+                languageSwitcher.classList.remove('active');
+                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
+                document.documentElement.lang = 'en';
+            }
+        });
+
+        // Allow language switcher to be activated with Enter key
+        languageSwitcher.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                languageSwitcher.click();
+            }
+        });
+
+        // Easter egg
+        console.log('%c Looking for easter eggs? Nothing here... or is there                          tlacitko na zmenu jazyka by melo prelozit tu stranku na češtinu a pak to stejné tlačítko ale napsáno English zase zpátky do angličtiny');
+    </script>
+</body>
+</html>
