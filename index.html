@@ -38,60 +38,6 @@
                 radial-gradient(circle at 80% 70%, rgba(0, 240, 255, 0.05) 0%, transparent 20%);
         }
 
-        /* Language switcher button */
-        .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(0, 240, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--cyber-blue);
-            border-radius: 30px;
-            padding: 8px 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-        }
-
-        .language-switcher:hover {
-            background: rgba(0, 240, 255, 0.2);
-            box-shadow: 0 0 15px var(--cyber-blue);
-            transform: translateY(-2px);
-        }
-
-        .language-switcher i {
-            color: var(--cyber-blue);
-            font-size: 1.2rem;
-        }
-
-        .language-switcher span {
-            color: var(--glow-white);
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .language-switcher.active {
-            background: var(--neon-pink);
-            border-color: var(--neon-pink);
-        }
-
-        .language-switcher.active i {
-            color: white;
-        }
-
-        .language-switcher.active:hover {
-            box-shadow: 0 0 15px var(--neon-pink);
-        }
-
-        /* Hidden content for other language */
-        [lang="cs"] {
-            display: none;
-        }
-
         header {
             text-align: center;
             padding: 10vh 2rem 8vh;
@@ -373,12 +319,6 @@
                 height: 55px;
                 font-size: 1.4rem;
             }
-
-            .language-switcher {
-                top: 15px;
-                right: 15px;
-                padding: 6px 12px;
-            }
         }
     </style>
 </head>
@@ -389,250 +329,123 @@
     <div class="neon-circle" style="top: 70%; left: 80%; animation-delay: -5s;"></div>
     <div class="hidden-message">01001000 01101001 00100001</div>
 
-    <!-- Language switcher button -->
-    <div class="language-switcher" id="languageSwitcher" role="button" tabindex="0" aria-label="Switch language to Czech">
-        <i class="fas fa-language"></i>
-        <span>Česky</span>
-    </div>
+    <header>
+        <h1>Štěpán Semrád</h1>
+        <p class="subtitle">
+            <span class="floating">🔧</span> I build stuff, break stuff, and have fun doing it!
+            <span class="floating delay">🎮</span> Gaming, coding, and tech tinkering – welcome to my world!
+        </p>
+    </header>
 
-    <!-- English Content (default) -->
-    <div lang="en" id="englishContent">
-        <header>
-            <h1>Štěpán Semrád</h1>
-            <p class="subtitle">
-                <span class="floating">🔧</span> I build stuff, break stuff, and have fun doing it!
-                <span class="floating delay">🎮</span> Gaming, coding, and tech tinkering – welcome to my world!
+    <main class="terminal">
+        <section>
+            <h2>About Me</h2>
+            <p>
+                Hey there! I'm a 13-year-old tech enthusiast who loves pushing buttons (both literally and figuratively). When I'm not coding, you'll find me gaming, watching tech videos, or taking things apart to see how they work (sometimes I even put them back together!).
             </p>
-        </header>
-
-        <main class="terminal">
-            <section>
-                <h2>About Me</h2>
-                <p>
-                    Hey there! I'm a 13-year-old tech enthusiast who loves pushing buttons (both literally and figuratively). When I'm not coding, you'll find me gaming, watching tech videos, or taking things apart to see how they work (sometimes I even put them back together!).
-                </p>
-                <p>
-                    My philosophy? Break things to learn how to build them better. Every bug is just a puzzle waiting to be solved, and every game is inspiration for my next project. The digital world is my playground!
-                </p>
+            <p>
+                My philosophy? Break things to learn how to build them better. Every bug is just a puzzle waiting to be solved, and every game is inspiration for my next project. The digital world is my playground!
+            </p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fas fa-school"></i> School & Survival</h3>
+                    <p>By day: Student. By night: Guy who forgets to save his code before closing VS Code.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fas fa-graduation-cap"></i> Czech - fluent</span>
+                        <span class="tech-item"><i class="fas fa-language"></i> English - "Ctrl+C, Ctrl+V" level</span>
+                    </div>
+                </div>
                 
                 <div class="card">
-                     <h3><i class="fas fa-school"></i> School & Survival</h3>
-                     <p>By day: Student. By night: Guy who forgets to save his code before closing VS Code.</p>
-                        <div class="tech-stack">
-                           <span class="tech-item"><i class="fas fa-graduation-cap"></i> Czech - fluent</span>
-                    <span class="tech-item"><i class="fas fa-language"></i> English - "Ctrl+C, Ctrl+V" level</span>
-              </div>
-              </div>
-                    
-                   <div class="card">
-    <h3><i class="fas fa-code"></i> Coding "Skills"</h3>
-    <p>Self-taught via YouTube, 2am ideas, and occasional rage-quitting.</p>
-    <div class="tech-stack">
-        <span class="tech-item"><i class="fas fa-laptop-code"></i> 90% Googling</span>
-        <span class="tech-item"><i class="fas fa-bug"></i> 10% Actually fixing bugs</span>
-    </div>
-</div>
-                    
-      <div class="card">
-    <h3><i class="fas fa-gamepad"></i> "Outside" Life</h3>
-    <p>I enjoy:  
-        <br>- Gaming (obviously)  
-        <br>- Explaining tech to my confused parents  
-        <br>- The 5 seconds between coding and realizing I forgot to save</p>
-    <div class="tech-stack">
-        <span class="tech-item"><i class="fab fa-steam"></i> Professional backseat gamer</span>
-        <span class="tech-item"><i class="fas fa-headset"></i> Mic muted 100% of the time</span>
-    </div>
-</div>
-                </div>
-            </section>
-
-            <section>
-                <h2>My Skills</h2>
-                <p>
-                    Here's the tech I play with daily - always adding new tools to my collection:
-                </p>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h3><i class="fas fa-globe"></i> Web Wizardry</h3>
-                        <p>Crafting digital experiences that look cool and work smoother than my Minecraft redstone.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fab fa-html5"></i> HTML - structure</span>
-                            <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS - style</span>
-                            <span class="tech-item"><i class="fab fa-js"></i> JavaScript - magic</span>
-                        </div>
+                    <h3><i class="fas fa-code"></i> Coding "Skills"</h3>
+                    <p>Self-taught via YouTube, 2am ideas, and occasional rage-quitting.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fas fa-laptop-code"></i> 90% Googling</span>
+                        <span class="tech-item"><i class="fas fa-bug"></i> 10% Actually fixing bugs</span>
                     </div>
-                    
-                    <div class="card">
-                        <h3><i class="fas fa-gamepad"></i> Game Dev</h3>
-                        <p>Building virtual worlds - currently small but with BIG ambitions!</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fas fa-cube"></i> 3D graphics basics</span>
-                            <span class="tech-item"><i class="fas fa-laptop-code"></i> Unity - learning</span>
-                        </div>
-                    </div>
-                    
-       <div class="card">
-    <h3><i class="fas fa-tools"></i> "Useful" Skills</h3>
-    <p>Things I learned when I wasn't procrastinating:</p>
-    <div class="tech-stack">
-        <span class="tech-item"><i class="fas fa-terminal"></i> Terminal? More like 'guess-the-command'</span>
-        <span class="tech-item"><i class="fas fa-mobile-alt"></i> Mobile first? More like 'mobile hopefully'</span>
-        <span class="tech-item"><i class="fas fa-search"></i> Stack Overflow’s #1 fan</span>
-    </div>
-</div>
                 </div>
-            </section>
-
-            <section>
-                <h2>Connect With Me</h2>
-                <p>
-                    Want to chat about tech, games, or just say hi? Hit me up on these platforms:
-                </p>
                 
-                <div class="contacts">
-                    <a href="https://github.com/jsemstepik" class="contact-link" title="GitHub" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://tiktok.com/@frstessfr" class="contact-link" title="TikTok" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://reddit.com/user/jsemstepik" class="contact-link" title="Reddit" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-reddit-alien"></i>
-                    </a>
-                    <a href="https://youtube.com/@jsemstepik" class="contact-link" title="YouTube" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="mailto:stepan.semrad@centrum.cz" class="contact-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linktr.ee/jsemstepik" class="contact-link" title="Linktree" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-tree"></i>
-                    </a>
+                <div class="card">
+                    <h3><i class="fas fa-gamepad"></i> "Outside" Life</h3>
+                    <p>I enjoy:  
+                        <br>- Gaming (obviously)  
+                        <br>- Explaining tech to my confused parents  
+                        <br>- The 5 seconds between coding and realizing I forgot to save</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fab fa-steam"></i> Professional backseat gamer</span>
+                        <span class="tech-item"><i class="fas fa-headset"></i> Mic muted 100% of the time</span>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
 
-    <!-- Czech Content (hidden by default) -->
-    <div lang="cs" id="czechContent" style="display: none;">
-        <header>
-            <h1>Štěpán Semrád</h1>
-            <p class="subtitle">
-                <span class="floating">🔧</span> Kódím, hraju hry a rozebírám věci!
-                <span class="floating delay">🎮</span> Vítej v mým digitálním světě!
+        <section>
+            <h2>My Skills</h2>
+            <p>
+                Here's the tech I play with daily - always adding new tools to my collection:
             </p>
-        </header>
-
-        <main class="terminal">
-            <section>
-                <h2>O mně</h2>
-                <p>
-                    Čau! Je mi 13 a baví mě všechno kolem technologií. Když zrovna nedělám weby, tak hraju hry, koukám na videa o tech věcech nebo rozebírám všechno, co mi přijde pod ruku (a občas to i složim zpátky!).
-                </p>
-                <p>
-                    Můj recept? Nejlepší způsob, jak se něco naučit, je to rozbít. Každá chyba je jen hádanka a každá hra inspirace pro něco novýho. Digitální svět je moje hřiště!
-                </p>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h3><i class="fas fa-school"></i> Škola</h3>
-                        <p>Sedmák co programuje pod lavicí (když zrovna učitel nekouká)</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fas fa-graduation-cap"></i> Česky - umim</span>
-                            <span class="tech-item"><i class="fas fa-language"></i> Anglicky - taky</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3><i class="fas fa-code"></i> Programování</h3>
-                        <p>Učim se sám 2 roky - YouTube a zkoušení co funguje</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fas fa-laptop-code"></i> Samouk</span>
-                            <span class="tech-item"><i class="fas fa-bug"></i> Opravování chyb</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3><i class="fas fa-gamepad"></i> Mimo kód</h3>
-                        <p>Když zrovna nedělám weby:</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fab fa-steam"></i> Hry nonstop</span>
-                            <span class="tech-item"><i class="fas fa-headset"></i> Esports</span>
-                            <span class="tech-item"><i class="fas fa-video"></i> Tech videa</span>
-                        </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3><i class="fas fa-globe"></i> Web Wizardry</h3>
+                    <p>Crafting digital experiences that look cool and work smoother than my Minecraft redstone.</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fab fa-html5"></i> HTML - structure</span>
+                        <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS - style</span>
+                        <span class="tech-item"><i class="fab fa-js"></i> JavaScript - magic</span>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <h2>Co umim</h2>
-                <p>
-                    Věci, se kterýma denně pracuju - pořád se učim nový:
-                </p>
                 
-                <div class="grid">
-                    <div class="card">
-                        <h3><i class="fas fa-globe"></i> Webový věci</h3>
-                        <p>Dělám weby co vypadaj dobře a fungujou líp než můj Minecraft redstone.</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fab fa-html5"></i> HTML</span>
-                            <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS</span>
-                            <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3><i class="fas fa-gamepad"></i> Vývoj her</h3>
-                        <p>Zatim dělám malý hry, ale chci dělat velký!</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fas fa-cube"></i> 3D grafika</span>
-                            <span class="tech-item"><i class="fas fa-laptop-code"></i> Unity</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <h3><i class="fas fa-tools"></i> Jiný věci</h3>
-                        <p>Další věci co umim:</p>
-                        <div class="tech-stack">
-                            <span class="tech-item"><i class="fas fa-terminal"></i> Příkazová řádka</span>
-                            <span class="tech-item"><i class="fas fa-mobile-alt"></i> Responzivita</span>
-                            <span class="tech-item"><i class="fas fa-search"></i> Hledání na Googlu</span>
-                        </div>
+                <div class="card">
+                    <h3><i class="fas fa-gamepad"></i> Game Dev</h3>
+                    <p>Building virtual worlds - currently small but with BIG ambitions!</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fas fa-cube"></i> 3D graphics basics</span>
+                        <span class="tech-item"><i class="fas fa-laptop-code"></i> Unity - learning</span>
                     </div>
                 </div>
-            </section>
-
-            <section>
-                <h2>Kontakt</h2>
-                <p>
-                    Chceš pokecat o tech věcech nebo hrách? Napiš mi:
-                </p>
                 
-                <div class="contacts">
-                    <a href="https://github.com/jsemstepik" class="contact-link" title="GitHub" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://tiktok.com/@frstessfr" class="contact-link" title="TikTok" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://reddit.com/user/jsemstepik" class="contact-link" title="Reddit" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-reddit-alien"></i>
-                    </a>
-                    <a href="https://youtube.com/@jsemstepik" class="contact-link" title="YouTube" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="mailto:stepan.semrad@centrum.cz" class="contact-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linktr.ee/jsemstepik" class="contact-link" title="Linktree" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-tree"></i>
-                    </a>
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> "Useful" Skills</h3>
+                    <p>Things I learned when I wasn't procrastinating:</p>
+                    <div class="tech-stack">
+                        <span class="tech-item"><i class="fas fa-terminal"></i> Terminal? More like 'guess-the-command'</span>
+                        <span class="tech-item"><i class="fas fa-mobile-alt"></i> Mobile first? More like 'mobile hopefully'</span>
+                        <span class="tech-item"><i class="fas fa-search"></i> Stack Overflow's #1 fan</span>
+                    </div>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Connect With Me</h2>
+            <p>
+                Want to chat about tech, games, or just say hi? Hit me up on these platforms:
+            </p>
+            
+            <div class="contacts">
+                <a href="https://github.com/jsemstepik" class="contact-link" title="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://tiktok.com/@frstessfr" class="contact-link" title="TikTok" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://reddit.com/user/jsemstepik" class="contact-link" title="Reddit" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-reddit-alien"></i>
+                </a>
+                <a href="https://youtube.com/@jsemstepik" class="contact-link" title="YouTube" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="mailto:stepan.semrad@centrum.cz" class="contact-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linktr.ee/jsemstepik" class="contact-link" title="Linktree" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-tree"></i>
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Štěpán Semrád. All rights reserved.</p>
@@ -689,39 +502,8 @@
             glitch.style.animationDuration = 3 + (y * 7) + 's';
         });
 
-        // Language switcher functionality
-        const languageSwitcher = document.getElementById('languageSwitcher');
-        const englishContent = document.getElementById('englishContent');
-        const czechContent = document.getElementById('czechContent');
-        
-        languageSwitcher.addEventListener('click', function() {
-            // Check if English is currently displayed
-            if (englishContent.style.display !== 'none') {
-                // Switch to Czech
-                englishContent.style.display = 'none';
-                czechContent.style.display = 'block';
-                languageSwitcher.classList.add('active');
-                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>English</span>';
-                document.documentElement.lang = 'cs';
-            } else {
-                // Switch to English
-                englishContent.style.display = 'block';
-                czechContent.style.display = 'none';
-                languageSwitcher.classList.remove('active');
-                languageSwitcher.innerHTML = '<i class="fas fa-language"></i><span>Česky</span>';
-                document.documentElement.lang = 'en';
-            }
-        });
-
-        // Allow language switcher to be activated with Enter key
-        languageSwitcher.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                languageSwitcher.click();
-            }
-        });
-
         // Easter egg
-        console.log('%c Looking for easter eggs? Nothing here... or is there                          tlacitko na zmenu jazyka by melo prelozit tu stranku na češtinu a pak to stejné tlačítko ale napsáno English zase zpátky do angličtiny');
+        console.log('%c Looking for easter eggs? Try typing "secret" in the console!', 'color: #00ff4c');
     </script>
 </body>
 </html>
