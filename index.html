@@ -231,75 +231,6 @@
             position: relative;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .floating.delay {
-            animation-delay: 0.5s;
-        }
-
-        .glitch {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"/></svg>');
-            pointer-events: none;
-            z-index: -1;
-            mix-blend-mode: overlay;
-            animation: glitch-anim 5s infinite alternate;
-        }
-
-        @keyframes glitch-anim {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); }
-            40% { transform: translate(-3px, -3px); }
-            60% { transform: translate(3px, 3px); }
-            80% { transform: translate(3px, -3px); }
-            100% { transform: translate(0); }
-        }
-
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            z-index: -2;
-            opacity: 0.05;
-            pointer-events: none;
-        }
-
-        .neon-circle {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 44, 237, 0.1) 0%, transparent 70%);
-            filter: blur(40px);
-            z-index: -2;
-            animation: float 15s infinite alternate ease-in-out;
-        }
-
-        .hidden-message {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            color: var(--matrix-green);
-            font-size: 0.8rem;
-            opacity: 0.3;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-        }
-
         @media (max-width: 768px) {
             .terminal {
                 padding: 2rem 1.5rem;
@@ -323,187 +254,40 @@
     </style>
 </head>
 <body>
-    <div class="glitch"></div>
-    <div class="matrix-rain" id="matrixRain"></div>
-    <div class="neon-circle" style="top: 20%; left: 10%;"></div>
-    <div class="neon-circle" style="top: 70%; left: 80%; animation-delay: -5s;"></div>
-    <div class="hidden-message">01001000 01101001 00100001</div>
-
     <header>
         <h1>Štěpán Semrád</h1>
-        <p class="subtitle">
-            <span class="floating">🔧</span> I build stuff, break stuff, and have fun doing it!
-            <span class="floating delay">🎮</span> Gaming, coding, and tech tinkering – welcome to my world!
-        </p>
+        <p class="subtitle">Jsem ten, kdo staví věci, dává jim nový život a občas je i zničí. Prozkoumejte svět kódování, her a techniky!</p>
     </header>
 
     <main class="terminal">
-        <section>
-            <h2>About Me</h2>
-            <p>
-                Hey there! I'm a 13-year-old tech enthusiast who loves pushing buttons (both literally and figuratively). When I'm not coding, you'll find me gaming, watching tech videos, or taking things apart to see how they work (sometimes I even put them back together!).
-            </p>
-            <p>
-                My philosophy? Break things to learn how to build them better. Every bug is just a puzzle waiting to be solved, and every game is inspiration for my next project. The digital world is my playground!
-            </p>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3><i class="fas fa-school"></i> School & Survival</h3>
-                    <p>By day: Student. By night: Guy who forgets to save his code before closing VS Code.</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fas fa-graduation-cap"></i> Czech - fluent</span>
-                        <span class="tech-item"><i class="fas fa-language"></i> English - "Ctrl+C, Ctrl+V" level</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-code"></i> Coding "Skills"</h3>
-                    <p>Self-taught via YouTube, 2am ideas, and occasional rage-quitting.</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fas fa-laptop-code"></i> 90% Googling</span>
-                        <span class="tech-item"><i class="fas fa-bug"></i> 10% Actually fixing bugs</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-gamepad"></i> "Outside" Life</h3>
-                    <p>I enjoy:  
-                        <br>- Gaming (obviously)  
-                        <br>- Explaining tech to my confused parents  
-                        <br>- The 5 seconds between coding and realizing I forgot to save</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fab fa-steam"></i> Professional backseat gamer</span>
-                        <span class="tech-item"><i class="fas fa-headset"></i> Mic muted 100% of the time</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <h2>O mně</h2>
+        <p>Jsem mladý, tech nadšený kluk, co neustále něco staví. Když zrovna neprogramuju nebo nehraju, tak se snažím vyřešit nějaký technologický problém. Rád se dívám na videa, která mě inspirují a posouvají dál.</p>
 
-        <section>
-            <h2>My Skills</h2>
-            <p>
-                Here's the tech I play with daily - always adding new tools to my collection:
-            </p>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3><i class="fas fa-globe"></i> Web Wizardry</h3>
-                    <p>Crafting digital experiences that look cool and work smoother than my Minecraft redstone.</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fab fa-html5"></i> HTML - structure</span>
-                        <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS - style</span>
-                        <span class="tech-item"><i class="fab fa-js"></i> JavaScript - magic</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-gamepad"></i> Game Dev</h3>
-                    <p>Building virtual worlds - currently small but with BIG ambitions!</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fas fa-cube"></i> 3D graphics basics</span>
-                        <span class="tech-item"><i class="fas fa-laptop-code"></i> Unity - learning</span>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-tools"></i> "Useful" Skills</h3>
-                    <p>Things I learned when I wasn't procrastinating:</p>
-                    <div class="tech-stack">
-                        <span class="tech-item"><i class="fas fa-terminal"></i> Terminal? More like 'guess-the-command'</span>
-                        <span class="tech-item"><i class="fas fa-mobile-alt"></i> Mobile first? More like 'mobile hopefully'</span>
-                        <span class="tech-item"><i class="fas fa-search"></i> Stack Overflow's #1 fan</span>
-                    </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Technologie, které miluju</h3>
+                <div class="tech-stack">
+                    <div class="tech-item"><i class="fab fa-html5"></i> HTML</div>
+                    <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS</div>
+                    <div class="tech-item"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="tech-item"><i class="fab fa-react"></i> React</div>
                 </div>
             </div>
-        </section>
 
-        <section>
-            <h2>Connect With Me</h2>
-            <p>
-                Want to chat about tech, games, or just say hi? Hit me up on these platforms:
-            </p>
-            
-            <div class="contacts">
-                <a href="https://github.com/jsemstepik" class="contact-link" title="GitHub" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://tiktok.com/@frstessfr" class="contact-link" title="TikTok" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://reddit.com/user/jsemstepik" class="contact-link" title="Reddit" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-reddit-alien"></i>
-                </a>
-                <a href="https://youtube.com/@jsemstepik" class="contact-link" title="YouTube" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="mailto:stepan.semrad@centrum.cz" class="contact-link" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linktr.ee/jsemstepik" class="contact-link" title="Linktree" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-tree"></i>
-                </a>
+            <div class="card">
+                <h3>Co dělám ve volném čase</h3>
+                <p>Nejenom že programuju, ale taky jsem velký fanoušek Minecraftu, rád dělám videa a baví mě se ponořit do nových projektů. A když už není nic jiného, tak skočím na kolo a trochu si to užiju.</p>
             </div>
-        </section>
+        </div>
+
+        <div class="contacts">
+            <a href="https://discord.com/users/your-discord-id" class="contact-link" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="mailto:youremail@example.com" class="contact-link" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Štěpán Semrád. All rights reserved.</p>
+        <p>&copy; 2025 Štěpán Semrád. Všechna práva vyhrazena.</p>
     </footer>
-
-    <script>
-        // Matrix rain effect
-        const chars = "01";
-        const matrixRain = document.getElementById('matrixRain');
-        
-        function createMatrixStream() {
-            const stream = document.createElement('div');
-            stream.style.position = 'absolute';
-            stream.style.top = '-50px';
-            stream.style.left = Math.random() * 100 + 'vw';
-            stream.style.color = 'var(--matrix-green)';
-            stream.style.fontSize = (10 + Math.random() * 10) + 'px';
-            stream.style.opacity = Math.random() * 0.5;
-            stream.style.fontFamily = 'monospace';
-            stream.style.whiteSpace = 'nowrap';
-            stream.style.writingMode = 'vertical-rl';
-            stream.style.textOrientation = 'mixed';
-            
-            let content = '';
-            for (let i = 0; i < 20; i++) {
-                content += chars.charAt(Math.floor(Math.random() * chars.length)) + '<br>';
-            }
-            
-            stream.innerHTML = content;
-            matrixRain.appendChild(stream);
-            
-            let pos = -50;
-            const speed = 2 + Math.random() * 3;
-            
-            const fall = setInterval(() => {
-                pos += speed;
-                stream.style.top = pos + 'px';
-                
-                if (pos > window.innerHeight) {
-                    clearInterval(fall);
-                    stream.remove();
-                }
-            }, 30);
-        }
-        
-        setInterval(createMatrixStream, 100);
-        
-        // Glitch effect intensity
-        document.addEventListener('mousemove', (e) => {
-            const glitch = document.querySelector('.glitch');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            glitch.style.opacity = 0.05 + (x * 0.1);
-            glitch.style.animationDuration = 3 + (y * 7) + 's';
-        });
-
-        // Easter egg
-        console.log('%c Looking for easter eggs? Try typing "secret" in the console!', 'color: #00ff4c');
-    </script>
 </body>
 </html>
